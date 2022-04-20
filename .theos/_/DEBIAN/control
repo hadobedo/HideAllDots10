@@ -1,10 +1,10 @@
-Package: com.nickblend.nodots10fix
-Name: NoDots10Fix
+Package: com.nickblend.hidealldots10
+Name: HideAllDots10
 Depends: mobilesubstrate
 Architecture: iphoneos-arm
-Description: Original tweak by harrywantstodev. Fixes Cephei's very annoying warning.
+Description: Modified version of NoDots10 by harrywantstodev. Hides all UI dots. I removed his tweak's dependancy on Cephei to get rid of a Cephei warning, although a downside is that there are no tweak preferences.
 Maintainer: nickblend
-Author: harrywantstodev & nickblend
+Author: nickblend & harrywantstodev
 Section: Tweaks
-Version: 0.4.0-2-7+debug
-Installed-Size: 140
+Version: 0.1.0
+Installed-Size: 136

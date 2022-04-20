@@ -1,5 +1,5 @@
-/Users/nickb/nodots10fix/.theos/obj/debug/armv7/Tweak.xm.a5cbf1fd.o: \
-  /Users/nickb/nodots10fix/.theos/obj/debug/armv7/Tweak.xm.mm \
+/Users/nickb/HideAllDots10/.theos/obj/arm64/Tweak.xm.95c732ca.o: \
+  /Users/nickb/HideAllDots10/.theos/obj/arm64/Tweak.xm.mm \
   /Users/nickb/theos/Prefix.pch \
   /Users/nickb/theos/vendor/include/theos/BackwardsCompat.h \
   /Users/nickb/theos/vendor/include/AppList/module.modulemap \
