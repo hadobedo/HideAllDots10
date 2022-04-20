@@ -1,12 +1,7 @@
+export TARGET=iphone:clang:10.3
 include $(THEOS)/makefiles/common.mk
 
-TWEAK_NAME = NoDots10
-NoDots10_FILES = Tweak.xm
-NoDots10_EXTRA_FRAMEWORKS += Cephei cepheiprefs
+TWEAK_NAME = HideAllDots10
+HideAllDots10_FILES = Tweak.xm
 
 include $(THEOS_MAKE_PATH)/tweak.mk
-
-after-install::
-	install.exec "killall -9 SpringBoard"
-SUBPROJECTS += nodots10
-include $(THEOS_MAKE_PATH)/aggregate.mk

@@ -1,0 +1,10 @@
+Package: com.nickblend.nodots10fix
+Name: NoDots10Fix
+Depends: mobilesubstrate
+Architecture: iphoneos-arm
+Description: Original tweak by harrywantstodev. Fixes Cephei's very annoying warning.
+Maintainer: nickblend
+Author: harrywantstodev & nickblend
+Section: Tweaks
+Version: 0.4.0-2-7+debug
+Installed-Size: 140

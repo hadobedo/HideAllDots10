@@ -1,9 +1,9 @@
-Package: com.harrywantstodev.nodots10
-Name: NoDots10
+Package: com.nickblend.hidealldots10
+Name: HideAllDots10
 Depends: mobilesubstrate
-Version: 0.4.0-1
+Version: 0.1.0
 Architecture: iphoneos-arm
-Description: An awesome MobileSubstrate tweak!
-Maintainer: harrywantstodev
-Author: harrywantstodev
+Description: Modified version of NoDots10 by harrywantstodev. Hides all UI dots. I removed his tweak's dependancy on Cephei to get rid of a Cephei warning, although a downside is that there are no tweak preferences.
+Maintainer: nickblend
+Author: nickblend & harrywantstodev
 Section: Tweaks

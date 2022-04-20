@@ -1,5 +1,5 @@
-# NoDots10
+# HideAllDots10
 
-http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=nodots10Dp
+Modified version of harrywantstodev's NoDots10. I used NoDots10 on a lot of my legacy devices, but was annoyed by a Cephei warning that would appear after respringing.
 
-Uses https://hbang.github.io/libcephei/
+This version of NoDots10 removes Cephei entirely. Due to this, there are no options to configure.

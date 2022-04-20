@@ -1,25 +1,12 @@
 #import <UIKit/UIPageControl.h>
 
-#define plist @"/var/mobile/Library/Preferences/com.harrywantstodev.NoDots10.plist"
-
-static BOOL SBisEnabled;
-static BOOL CCisEnabled;
-static BOOL LSisEnabled;
-static BOOL WidgetisEnabled;
-static BOOL BetaisEnabled;
-static BOOL NewisEnabled;
-static BOOL NCisEnabled;
+// Pretty much all of this code was written by harrywantstodev! I just hardcoded the nil's/NO's.
 
 %hook SBNotificationCenterViewController
 //Notification Center
 -(void)_loadPageControl
 {
-	if (NCisEnabled == YES) {
 
-	} else {
-		%orig;
-	}
-//	return NCisEnabled ? nil : %orig;
 }
 %end
 
@@ -27,26 +14,26 @@ static BOOL NCisEnabled;
 //Beta Dot
 -(bool) isBeta
 {
-	return BetaisEnabled ? NO : %orig;
+	return NO;
 }
 -(BOOL)isRecentlyUpdated
 //Blue Update Dot
 {
-	return NewisEnabled ? NO : %orig;
+	return NO;
 }
 %end
 //Widget
 %hook WGWidgetListEditViewController
 -(BOOL)_isNewItem:(id)arg1
 {
-	return WidgetisEnabled ? NO : %orig;
+	return NO;
 }
 %end
 //SpringBoard and folders
 %hook SBIconListPageControl
 - (id)initWithFrame:(CGRect)frame
 {
-	return SBisEnabled ? nil : %orig;
+	return nil;
 }
 %end
 
@@ -54,7 +41,7 @@ static BOOL NCisEnabled;
 %hook CCUIControlCenterPageControl
 - (id)initWithFrame:(CGRect)frame
 {
-	return CCisEnabled ? nil : %orig;
+	return nil;
 }
 %end
 
@@ -62,50 +49,11 @@ static BOOL NCisEnabled;
 %hook SBDashBoardPageControl
 - (id)initWithFrame:(CGRect)frame
 {
-	return LSisEnabled ? nil : %orig;
+	return nil;
 }
 //Needed for 10.2
 - (id)_indicatorViewEnabled:(_Bool)arg1 index:(long long)arg2
 {
-	return LSisEnabled ? %orig(NO, arg2) : %orig;
+	return nil;
 }
 %end
-
-static void loadPreferences() {
-    CFPreferencesAppSynchronize(CFSTR("com.harrywantstodev.nodots10"));
-    NSNumber *tempVal;
-
-    tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("LSisEnabled"), CFSTR("com.harrywantstodev.nodots10"));
-    LSisEnabled = !tempVal ? YES : [tempVal boolValue];
-
-		tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("NCisEnabled"), CFSTR("com.harrywantstodev.nodots10"));
-		NCisEnabled = !tempVal ? YES : [tempVal boolValue];
-
-		tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("CCisEnabled"), CFSTR("com.harrywantstodev.nodots10"));
-		CCisEnabled = !tempVal ? YES : [tempVal boolValue];
-
-		tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("WidgetisEnabled"), CFSTR("com.harrywantstodev.nodots10"));
-		WidgetisEnabled = !tempVal ? YES : [tempVal boolValue];
-
-		tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("BetaisEnabled"), CFSTR("com.harrywantstodev.nodots10"));
-		BetaisEnabled = !tempVal ? YES : [tempVal boolValue];
-
-		tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("SBisEnabled"), CFSTR("com.harrywantstodev.nodots10"));
-		SBisEnabled = !tempVal ? YES : [tempVal boolValue];
-
-		tempVal = (NSNumber *)CFPreferencesCopyAppValue(CFSTR("NewisEnabled"), CFSTR("com.harrywantstodev.nodots10"));
-		NewisEnabled = !tempVal ? YES : [tempVal boolValue];
-
-		[tempVal release];
-}
-
-%ctor {
-
-    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
-        NULL,
-        (CFNotificationCallback)loadPreferences,
-        CFSTR("com.harrywantstodev.nodots10/settingschanged"),
-        NULL,
-        CFNotificationSuspensionBehaviorDeliverImmediately);
-    loadPreferences();
-  }
